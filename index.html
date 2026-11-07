@@ -40,6 +40,7 @@
     "name": "David Felício Fisioterapeuta",
     "description": "Fisioterapia traumato-ortopédica e esportiva com atendimento individualizado.",
     "telephone": "+55-19-98769-9280",
+    "sameAs": ["https://www.instagram.com/fisiodavidfelicio/"],
     "employee": {
       "@type": "Person",
       "name": "David Cristiano de Souza Felício",
@@ -705,6 +706,9 @@
     .footer__nav a:hover { color: var(--branco); }
     .footer__contact a { display: inline-block; padding: 6px 0; font-size: 15px; }
     .footer__contact a:hover { color: var(--branco); }
+    .footer__contact { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .footer__social { display: inline-flex !important; align-items: center; gap: 10px; min-height: 44px; }
+    .footer__social svg { width: 22px; height: 22px; flex: none; }
     .footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding-top: 24px; font-size: 13.5px; color: #B9BEC4; }
     @media (min-width: 820px) { .footer__top { grid-template-columns: 1.2fr 1fr 1fr; align-items: start; } }
 
@@ -1101,7 +1105,7 @@
           <picture>
             <source type="image/avif" srcset="assets/images/familia-600.avif 600w, assets/images/familia-1200.avif 1200w" sizes="(min-width: 960px) 440px, 90vw">
             <source type="image/webp" srcset="assets/images/familia-600.webp 600w, assets/images/familia-1200.webp 1200w" sizes="(min-width: 960px) 440px, 90vw">
-            <img src="assets/images/familia-600.webp" alt="David Felício ao lado do pai, Cristino, e de Fabiana" width="1200" height="1600" loading="lazy" decoding="async">
+            <img src="assets/images/familia-600.webp" alt="David Felício ao lado do pai, Cristino, e da mãe, Fabiana" width="1200" height="1600" loading="lazy" decoding="async">
           </picture>
         </div>
         <figcaption class="family__caption">Minha família, minha base</figcaption>
@@ -1109,7 +1113,7 @@
 
       <div>
         <p class="kicker" data-reveal>Dedicatória</p>
-        <h2 class="family__title" id="familia-titulo" data-reveal style="--d:1">Ao meu pai, <em>Cristino</em>, e à <em>Fabiana</em>.</h2>
+        <h2 class="family__title" id="familia-titulo" data-reveal style="--d:1">Ao meu pai, <em>Cristino</em>, e à minha mãe, <em>Fabiana</em>.</h2>
         <span class="family__quote-mark" aria-hidden="true" data-reveal style="--d:2">&ldquo;</span>
         <blockquote class="family__quote" data-reveal style="--d:2">
           <p>Tudo o que eu sou começou em casa. Foi com o exemplo, o carinho e o apoio de vocês que aprendi o verdadeiro sentido de cuidar de alguém.</p>
@@ -1229,6 +1233,10 @@
         </nav>
         <div class="footer__contact">
           <a href="https://wa.me/5519987699280" target="_blank" rel="noopener">WhatsApp: (19) 98769-9280</a>
+          <a class="footer__social" href="https://www.instagram.com/fisiodavidfelicio/" target="_blank" rel="noopener" aria-label="Instagram de David Felício (@fisiodavidfelicio)">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+            @fisiodavidfelicio
+          </a>
         </div>
       </div>
       <div class="footer__bottom">

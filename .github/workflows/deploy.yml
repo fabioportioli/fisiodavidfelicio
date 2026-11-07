@@ -1,0 +1,47 @@
+name: Deploy (FTP)
+
+# Publica por FTPS só o que mudou desde o último commit publicado (SHA gravado no servidor
+# em .deploy-version). Ver .github/scripts/publicar.sh.
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'tests/**'
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "diff = so o que mudou desde a ultima publicacao | tudo = reenviar o projeto inteiro"
+        type: choice
+        options: [diff, tudo]
+        default: diff
+      simular:
+        description: "Simular (mostra o plano, sem enviar nem apagar nada)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: deploy-producao
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # precisa do histórico para achar o commit que está no servidor
+
+      - name: Publicar
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_DIR: ${{ secrets.FTP_DIR }}
+          FTP_PORT: ${{ secrets.FTP_PORT }}
+          MODO: ${{ inputs.modo || 'diff' }}
+          SIMULAR: ${{ inputs.simular == true }}
+        run: bash .github/scripts/publicar.sh
