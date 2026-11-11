@@ -39,21 +39,116 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Physiotherapy",
-    "name": "David Felício Fisioterapeuta",
-    "description": "Fisioterapia traumato-ortopédica e esportiva com atendimento individualizado.",
-    "telephone": "+55-19-98769-9280",
-    "sameAs": ["https://www.instagram.com/fisiodavidfelicio/"],
-    "employee": {
-      "@type": "Person",
-      "name": "David Cristiano de Souza Felício",
-      "jobTitle": "Fisioterapeuta",
-      "identifier": "CREFITO-3/425847-F",
-      "alumniOf": [
-        { "@type": "CollegeOrUniversity", "name": "UNIMOGI" },
-        { "@type": "CollegeOrUniversity", "name": "Faculdade Inspirar" }
-      ]
-    }
+    "@graph": [
+      {
+        "@type": "Physiotherapy",
+        "@id": "https://fisiodavidfelicio.com.br/#clinica",
+        "name": "David Felício Fisioterapeuta",
+        "url": "https://fisiodavidfelicio.com.br/",
+        "description": "Fisioterapia traumato-ortopédica e esportiva com atendimento individualizado.",
+        "image": "https://fisiodavidfelicio.com.br/assets/brand/og-image.jpg",
+        "telephone": "+55-19-98769-9280",
+        "sameAs": [
+          "https://www.instagram.com/fisiodavidfelicio/"
+        ],
+        "medicalSpecialty": [
+          "Musculoskeletal",
+          "SportsMedicine"
+        ],
+        "availableService": [
+          {
+            "@type": "MedicalTherapy",
+            "name": "Avaliação fisioterapêutica",
+            "description": "Análise da queixa, do histórico e dos objetivos, que orienta todo o tratamento."
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Liberação miofascial",
+            "description": "Técnica manual que reduz tensões nos músculos e na fáscia, aliviando a dor e melhorando a mobilidade."
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Ventosaterapia",
+            "description": "Uso de ventosas que geram sucção sobre a pele, favorecendo a circulação local e o relaxamento muscular."
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Reabilitação funcional",
+            "description": "Estratégias para recuperar força, movimento e capacidade física."
+          }
+        ],
+        "employee": {
+          "@id": "https://fisiodavidfelicio.com.br/#david"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://fisiodavidfelicio.com.br/#david",
+        "name": "David Cristiano de Souza Felício",
+        "jobTitle": "Fisioterapeuta",
+        "identifier": "CREFITO-3/425847-F",
+        "url": "https://fisiodavidfelicio.com.br/",
+        "sameAs": [
+          "https://www.instagram.com/fisiodavidfelicio/"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "UNIMOGI"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Faculdade Inspirar"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://fisiodavidfelicio.com.br/#duvidas",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Como é a primeira consulta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ela começa com uma avaliação criteriosa: conversamos sobre a sua queixa, o seu histórico e os seus objetivos, e eu avalio o seu movimento. A partir disso, monto um plano de tratamento individualizado para você."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Você atende quem pratica esporte?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. Além da reabilitação traumato-ortopédica, atendo as demandas da prática esportiva, da prevenção de lesões ao retorno seguro aos treinos e competições, de acordo com os seus objetivos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O que é liberação miofascial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "É uma técnica manual que atua nos músculos e na fáscia, o tecido que os envolve. Ela ajuda a reduzir tensões, aliviar a dor e melhorar a mobilidade, e entra no tratamento quando faz sentido para o seu caso."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O que é ventosaterapia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "É um recurso que usa ventosas para gerar sucção sobre a pele, favorecendo a circulação local e o relaxamento muscular. É usada como complemento do tratamento, conforme a avaliação."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como faço para agendar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "É só me chamar no WhatsApp pelo número (19) 98769-9280. Combinamos o melhor dia e horário para a sua avaliação."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
