@@ -6,3 +6,8 @@ dest="$1"
 mkdir -p "$dest"
 cp index.html "$dest/"
 cp -r assets "$dest/assets"
+# arquivos de SEO na raiz (opcionais: só copia se existirem no commit)
+for f in robots.txt sitemap.xml; do
+  [ -f "$f" ] && cp "$f" "$dest/"
+done
+true

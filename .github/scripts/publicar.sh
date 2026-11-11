@@ -100,8 +100,12 @@ if [ "$MODO" = "diff" ]; then
   else
     echo "Servidor está em ${SERVIDOR:0:7}. Comparando com ${SHA_NOVO:0:7}."
     git -C "$REPO" worktree add --detach "$TMP/antigo-src" "$SERVIDOR" >/dev/null 2>&1 || true
+    # monta o pacote antigo com o montar-pacote.sh DAQUELE commit (o que de fato foi publicado),
+    # para que arquivos que passaram a entrar no pacote apareçam como novos e sejam enviados
+    MONTAR_ANTIGO="$TMP/antigo-src/.github/scripts/montar-pacote.sh"
+    [ -f "$MONTAR_ANTIGO" ] || MONTAR_ANTIGO="$REPO/.github/scripts/montar-pacote.sh"
     if [ -d "$TMP/antigo-src" ] \
-       && ( cd "$TMP/antigo-src" && bash "$REPO/.github/scripts/montar-pacote.sh" "$ANTIGO" ) > "$TMP/montagem-antigo.log" 2>&1; then
+       && ( cd "$TMP/antigo-src" && bash "$MONTAR_ANTIGO" "$ANTIGO" ) > "$TMP/montagem-antigo.log" 2>&1; then
       MODO_REAL="diff"
     else
       echo "AVISO: não consegui montar o pacote do commit ${SERVIDOR:0:7}: vai enviar o pacote inteiro."
